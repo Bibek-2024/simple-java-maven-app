@@ -1,19 +1,19 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-         http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mycompany.app</groupId>
   <artifactId>my-app</artifactId>
-  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
   <name>my-app</name>
   <url>https://maven.apache.org</url>
 
   <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -29,19 +29,16 @@
   <build>
     <plugins>
 
-      <!-- ✅ Compiler Plugin (active) -->
-   <plugins>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-compiler-plugin</artifactId>
-      <version>3.11.0</version> <!-- Latest version supporting Java 21 -->
-      <configuration>
-        <source>21</source>
-        <target>21</target>
-      </configuration>
-    </plugin>
-  </plugins>
-
+      <!-- ✅ Compiler Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <source>21</source>
+          <target>21</target>
+        </configuration>
+      </plugin>
 
       <!-- ✅ Jar Plugin -->
       <plugin>
@@ -60,30 +57,30 @@
       </plugin>
 
       <!-- ✅ Enforcer Plugin -->
-     <plugin>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-enforcer-plugin</artifactId>
-  <version>3.6.2</version>
-  <executions>
-    <execution>
-      <id>enforce-versions</id>
-      <goals>
-        <goal>enforce</goal>
-      </goals>
-      <configuration>
-        <rules>
-          <requireMavenVersion>
-            <version>[3.8.6,)</version> <!-- ✅ Accepts 3.8.6+ (very stable) -->
-          </requireMavenVersion>
-          <requireJavaVersion>
-            <version>[17,)</version> <!-- ✅ Requires Java 17+ -->
-          </requireJavaVersion>
-        </rules>
-        <fail>true</fail> <!-- ✅ Build fails immediately if version mismatch -->
-      </configuration>
-    </execution>
-  </executions>
-</plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.6.2</version>
+        <executions>
+          <execution>
+            <id>enforce-versions</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireMavenVersion>
+                  <version>[3.8.6,)</version>
+                </requireMavenVersion>
+                <requireJavaVersion>
+                  <version>[17,)</version>
+                </requireJavaVersion>
+              </rules>
+              <fail>true</fail>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 
     </plugins>
   </build>
