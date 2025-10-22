@@ -57,29 +57,30 @@
       </plugin>
 
       <!-- ✅ Enforcer Plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.6.2</version>
-        <executions>
-          <execution>
-            <id>enforce-maven</id>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <requireMavenVersion>
-                  <version>[3.9.9,)</version>
-                </requireMavenVersion>
-                <requireJavaVersion>
-                  <version>[17,)</version>
-                </requireJavaVersion>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+     <plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-enforcer-plugin</artifactId>
+  <version>3.6.2</version>
+  <executions>
+    <execution>
+      <id>enforce-versions</id>
+      <goals>
+        <goal>enforce</goal>
+      </goals>
+      <configuration>
+        <rules>
+          <requireMavenVersion>
+            <version>[3.8.6,)</version> <!-- ✅ Accepts 3.8.6+ (very stable) -->
+          </requireMavenVersion>
+          <requireJavaVersion>
+            <version>[17,)</version> <!-- ✅ Requires Java 17+ -->
+          </requireJavaVersion>
+        </rules>
+        <fail>true</fail> <!-- ✅ Build fails immediately if version mismatch -->
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
 
     </plugins>
   </build>
