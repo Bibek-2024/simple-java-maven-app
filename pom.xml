@@ -40,19 +40,13 @@
         </configuration>
       </plugin>
 
-      <!-- ✅ war Plugin -->
+      <!-- ✅ WAR Plugin (no mainClass) -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
-        <version>3.4.2</version>
+        <version>3.4.0</version> <!-- Use stable version -->
         <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>com.mycompany.app.App</mainClass>
-            </manifest>
-          </archive>
+          <failOnMissingWebXml>false</failOnMissingWebXml> <!-- Optional for annotation-based config -->
         </configuration>
       </plugin>
 
